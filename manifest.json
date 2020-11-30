@@ -1,0 +1,33 @@
+{
+    "manifest_version": 2,
+   
+    "name": "GitStar",
+    "version": "1.4",
+    "description": "Show user's all stars",
+    "permissions": [
+      "storage",
+      "unlimitedStorage",
+      "https://github.com/*"
+    ],
+
+    "icons": {
+    },
+
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+
+    "content_scripts": [{
+      "matches": ["https://github.com/*"],
+      "js": ["app.js"],
+      "css": []
+    }],
+
+    "browser_action": {
+      "default_title": "GitStar",
+      "default_popup": "index.html"
+    },
+    
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
